@@ -1,0 +1,12 @@
+{
+    "project_slug": null,
+    "environment_name": "{{cookiecutter.project_slug}}",
+    "generate_envrc": true,
+    "poetry_init_args": "-n",
+    "platform_linux_64": true,
+    "platform_osx_arm64": true,
+    "platform_win_64": false,
+    "platform_osx_64": false,
+    "platform_linux_aarch64": false,
+    "platform_linux_ppc64le": false
+}
