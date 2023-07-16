@@ -2,6 +2,13 @@
 .PHONY: check-name clean-direct-url-json env update
 SHELL := /usr/bin/env bash
 
+# Note: it doesn't work for paths with spaces. It's probably impossible to make
+# it work with such paths due to the format of MAKEFILE_LIST.
+export PROJECT_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
+
+# Make micromamba configuration local to the project to maintain reproducibility
+export MAMBARC := $(PROJECT_DIR)/.mambarc
+
 # These direct_url.json files don't contain anything useful and can be deleted.
 # They cause Poetry overwrite existing Conda packages even if versions match.
 # See https://github.com/python-poetry/poetry/issues/6408

@@ -4,6 +4,7 @@ set -e
 tmpdir="`mktemp -d`"
 trap 'rm -rf -- "$tmpdir"' EXIT
 
+export MAMBARC=.mambarc
 micromamba env create -y -p "$tmpdir/env" -f environment.yml
 { set +x; } >/dev/null 2>&1
 eval "`micromamba shell hook -s bash`"
@@ -40,5 +41,6 @@ You can now go into your project directory: \`cd {{cookiecutter.project_slug}}\`
   changes to \`environment.yml\` and run \`make update\`, which will update
   both \`conda-lock.yml\` and \`poetry.lock\` according to the updated package
   specifications
+- If needed, adjust micromamba's config in .mambarc in the project root
 - See https://github.com/kxmh42/poetic-conda for more information
 EOF

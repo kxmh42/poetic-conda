@@ -150,6 +150,14 @@ to Poetry.
 > (`pyproject.toml`). Then you can run `make update` and the Conda package will
 > be installed, and Poetry will be prevented from updating it.
 
+### Configure micromamba
+
+The micromamba config is in `.mambarc` in the project root. By default it sets the
+channel priority to `strict`. It can be adjusted as needed. This config file is
+used when micromamba is invoked from the `Makafile`. On the other hand,
+`~/.mambarc` from the home directory is **not** used in such a situation, in order
+to make the behaviour of micromamba as reproducible as possible.
+
 ### Add virtual packages
 
 See the [virtual package specification](https://github.com/conda/conda-lock#--virtual-package-spec)
